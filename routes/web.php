@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
-    Route::get('/addtocart/{product}', [CartController::class, 'add'])->name('addtocart');
+    Route::get('/addtocart/{product}', [CartController::class, 'addToCart'])->name('addtocart');
 });
 
 require __DIR__.'/auth.php';

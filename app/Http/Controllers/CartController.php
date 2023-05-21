@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,20 +13,24 @@ class CartController extends Controller
     //
     public function index()
     {
-        // 
-        $user = Auth::user()->id;
 
-        $cart = Cart::where('user_id', $user)->get();
+        $carts = Cart::where('user_id', Auth::user()->id)->get();
+        $products = Product::orderBy('created_at', 'asc')->paginate(10);
+        $categories = Category::orderBy('name', 'asc')->get();
+        $somme = 0;
 
-        // dd($cart);
+        foreach($carts as $itemCart){
 
-        return view('cart', compact('cart'));
+            $somme = ($itemCart->quantity * $itemCart->prix) + $somme;
+        }
+
+        return view('cart', compact('carts','products','categories','somme'));
     }
 
     //
-    public function add(Product $product)
+    public function addToCart(Product $product)
     {
-        // 
+        //
                 // On vérifie l'existance du produit du panier
 
         // SELEC * FROM Cart WHERE user_id="" AND product_id="$product->id" LIMIT(1)
@@ -45,14 +50,16 @@ class CartController extends Controller
                 "user_id" => Auth::user()->id,
                 "product_id" => $product->id,
                 "quantity" => 1,
-                "price" => $product->prix,
+                "prix" => $product->prix,
             ]);
-        }  
+        };
+
+        return redirect(route('cart'));
     }
 
     //
     public function delete()
     {
-        // 
+        //
     }
 }
