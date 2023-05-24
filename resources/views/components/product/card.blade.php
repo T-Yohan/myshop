@@ -5,14 +5,14 @@
                 <span class="badge badge-ecommerce badge-success">NEW</span>
             </div>
             <div class="addtocart-btn-wrapper">
-                <a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Add to Cart">
+                <a href="{{route('cart', $itemProduct)}}" class="text-decoration-none addtocart-btn" title="Add to Cart">
                     <i class="icons icon-bag"></i>
                 </a>
             </div>
             <a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
                 QUICK VIEW
             </a>
-            <a href="shop-product-sidebar-left.html">
+            <a href="{{route('accueil.detail', $itemProduct)}}">
                 <div class="product-thumb-info-image">
                     {{-- @dd($itemProduct->image) --}}
                     @if (isset($itemProduct->image))

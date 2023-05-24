@@ -46,7 +46,7 @@
                             <div class="header-column w-100">
                                 <div class="header-row justify-content-between">
                                     <div class="header-logo z-index-2 col-lg-2 px-0">
-                                        <a href="index.html">
+                                        <a href="{{route('accueil')}}">
                                             <img alt="Porto" width="100" height="48" data-sticky-width="82"
                                                 data-sticky-height="40" data-sticky-top="84"
                                                 src="/img/logo-default-slim.png">
@@ -57,7 +57,7 @@
                                         <div class="header-nav-feature ps-lg-5 pe-lg-4">
                                             <form role="search" action="page-search-results.html" method="get">
                                                 <div class="search-with-select">
-                                                    <a href="#" class="mobile-search-toggle-btn me-2"
+                                                    <a href="{{route('cart', $itemProduct)}}" class="mobile-search-toggle-btn me-2"
                                                         data-toggle-class="open">
                                                         <i
                                                             class="icons icon-magnifier text-color-dark text-color-hover-primary"></i>
@@ -116,7 +116,7 @@
                                         <div class="header-nav-features ps-0 ms-1">
                                             <div
                                                 class="header-nav-feature header-nav-features-cart header-nav-features-cart-big d-inline-flex top-2 ms-2">
-                                                <a href="#" class="header-nav-features-toggle" aria-label="">
+                                                <a href="{{route('cart', $itemProduct)}}" class="header-nav-features-toggle" aria-label="">
                                                     <img src="img/icons/icon-cart-big.svg" height="30"
                                                         alt="" class="header-nav-top-icon-img">
                                                     <span class="cart-info">

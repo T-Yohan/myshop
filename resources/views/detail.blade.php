@@ -48,7 +48,7 @@
                 <p class="text-3-5 mb-3">{{$product->description}}</p>
 
                     <div>
-                    <a href="{{route('addtocart', $product)}}"><button type="submit" class="btn btn-dark btn-modern text-uppercase bg-color-hover-primary border-color-hover-primary">Add to cart</button></a>
+                    <a href="{{route('addToCart', $product)}}"><button type="submit" class="btn btn-dark btn-modern text-uppercase bg-color-hover-primary border-color-hover-primary">Add to cart</button></a>
                     </div>
 
             </div>
@@ -72,7 +72,7 @@
 
                             <div class="product mb-0">
 
-                                <a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
+                                <a href="{{Storage::url($product->image)}}" class="quick-view text-uppercase font-weight-semibold text-2">
                                     QUICK VIEW
                                 </a>
 
